@@ -54,21 +54,8 @@ def check_user_words(user_words, language_part, letters, dict_of_words):
                     two_parts.append(lst_of_parts[lst_of_words.index(i) + 1])
                     if language_part in two_parts:
                         right_words.append(i)
-
-    for i in range(len(lst_of_words)):
+    loong = len(lst_of_words)
+    for i in range(loong):
         if lst_of_parts[i] == language_part and lst_of_words[i] not in right_words:
             missed_words.append(lst_of_words[i])
     return right_words, missed_words
-
-
-if __name__ == "__main__":
-    # print(sorted(set(get_words("base.lst", ['щ']))))
-    # print(sorted(set(get_words("base.lst", ['й', 'є', 'ю']))))
-    # print(check_user_words([], "verb", ['щ', 'ш', 'ь', 'у', 'ц'], get_words("base.lst", ['щ', 'ш', 'ь', 'у', 'ц'])))
-    # print(get_words("base.lst", ['ф', 'у', 'щ', 'б', 'л']))
-    print(check_user_words(['гаяти', 'гнати', 'ініціалізація', 'узяти', 'щавель'], "verb", ['ю', 'щ', 'я', 'ц', 'г'], get_words("base.lst", ['ю', 'щ', 'я', 'ц', 'г'])))
-    print(check_user_words(
-        ['бабин', 'битий', 'бичий', 'білий', 'бісів', 'богів', 'божий', 'босий', 'булий', 'булів', 'бурий', 'ласий',
-         'лисий', 'литий', 'лихий', 'лівий', 'любий', 'лютий', 'усний', 'утлий', 'щирий', 'щучий', 'щучин'],
-        "adjective", ['ф', 'у', 'щ', 'б', 'л'], get_words("base.lst", ['ф', 'у', 'щ', 'б', 'л'])))
-    print(check_user_words([], "adverb", ['ш', 'ь', 'т', 'і', 'х'], get_words("base.lst", ['ш', 'ь', 'т', 'і', 'х'])))
