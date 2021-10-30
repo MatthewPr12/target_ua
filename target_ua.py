@@ -14,7 +14,26 @@ def generate_grid():
 
 
 def get_words(file_name, letters):
-    """gets words from the file and puts it in the dic"""
+    """gets words from the file and puts it in the dic
+    >>> print(get_words("base.lst", ['щ']))
+    [('щасні', 'noun'), ('щасно', 'adverb'), ('щастя', 'noun'),\
+ ('ще', 'adverb'), ('щебет', 'noun'), ('щем', 'noun'),\
+ ('щемно', 'adverb'), ('щеня', 'noun'), ('щепа', 'noun'),\
+ ('щерба', 'noun'), ('щигля', 'noun'), ('щипак', 'noun'),\
+ ('щипок', 'noun'), ('щипці', 'noun'), ('щир', 'noun'),\
+ ('щирий', 'adjective'), ('щит', 'noun'),\
+ ('щиток', 'noun'), ('щі', 'noun'), ('щіпка', 'noun'),\
+ ('щітка', 'noun'), ('щіть', 'noun'), ('щічка', 'noun'),\
+ ('щогла', 'noun'), ('щодва', 'adverb'), ('щодві', 'adverb'),\
+ ('щодня', 'adverb'), ('щока', 'noun'), ('щоніч', 'adverb'),\
+ ('щораз', 'adverb'), ('щорік', 'adverb'),\
+ ('щотри', 'adverb'), ('щука', 'noun'), ('щуп', 'noun'),\
+ ('щупак', 'noun'), ('щупик', 'noun'), ('щупля', 'noun'),\
+ ('щур', 'noun'), ('щурик', 'noun'), ('щурка', 'noun'),\
+ ('щуря', 'noun'), ('щучий', 'adjective'),\
+ ('щучин', 'adjective'), ('щучка', 'noun')]
+
+    """
     dic_of_words = []
     parts_of_speech = ["/n", "noun", "adj", "/v", "verb", "adv", ]
     with open(file_name, "r", encoding='utf-8') as file_ukr:
@@ -35,7 +54,12 @@ def get_words(file_name, letters):
 
 
 def check_user_words(user_words, language_part, letters, dict_of_words):
-    """checks the users words"""
+    """checks the users words
+    >>> print(check_user_words(['гаяти', 'гнати', 'ініціалізація', 'узяти', 'щавель'],\
+ "verb", ['ю', 'щ', 'я', 'ц', 'г'], get_words("base.lst", ['ю', 'щ', 'я', 'ц', 'г'])))
+    (['гаяти', 'гнати'], ['гнити', 'гнути', 'гоїти', 'грати',\
+ 'гріти', 'густи', 'юшити', 'явити', 'яріти', 'ячати'])
+"""
     right_words = []
     missed_words = []
     lst_of_words = []
